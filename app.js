@@ -17,9 +17,12 @@ let nestedArray = [["a", [["b", "c"], "d", ["e", "f"]], "g"]];
 // console.log(nestedArray.flat(Infinity));
 
 let flatTop = (arr) => {
-  for (let i in arr) {
-    console.log(arr[i]);
+  let counter = 1;
+
+  while (arr[counter] === (typeof "string")) {
+    console.log(arr[counter]);
   }
+  counter++;
 }
 
 
@@ -27,10 +30,10 @@ let arrayFlat = (arr) => {
   let newArray = [];
 
   for (let i in arr) {
-    if (arr[i] === (typeof "string")) {
+    if (arr[i] === (typeof "string") || arr[i] === (typeof 0)) {
       newArray.push(arr[i]);
     }
-    flatTop(arr[i], newArray);
+    flatTop(arr);
   }
   return newArray;
 }
