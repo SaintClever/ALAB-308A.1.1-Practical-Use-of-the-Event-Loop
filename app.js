@@ -39,3 +39,8 @@ let arrayFlat = (arr) => {
 }
 
 arrayFlat(nestedArray);
+
+
+
+// OR
+console.log(nestedArray.toString().split(','))
