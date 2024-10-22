@@ -11,23 +11,28 @@
 // }
 
 
-let nestedArray = [[0, [[1, 2], 3, [4, 5]], 6]];
+let nestedArray = [["a", [["b", "c"], "d", ["e", "f"]], "g"]];
 
 // Goal
-console.log(nestedArray.flat(Infinity));
+// console.log(nestedArray.flat(Infinity));
+
+let flatTop = (arr) => {
+  for (let i in arr) {
+    console.log(arr[i]);
+  }
+}
 
 
 let arrayFlat = (arr) => {
-  for (i in arr) {
-    console.log(arr[i])
+  let newArray = [];
+
+  for (let i in arr) {
+    if (arr[i] === (typeof "string")) {
+      newArray.push(arr[i]);
+    }
+    flatTop(arr[i], newArray);
   }
-  return arr;
+  return newArray;
 }
 
-
-let trampoline = (func) => {
-  let result = func
-  return result;
-}
-
-console.log(trampoline(arrayFlat(nestedArray)));
+arrayFlat(nestedArray);
